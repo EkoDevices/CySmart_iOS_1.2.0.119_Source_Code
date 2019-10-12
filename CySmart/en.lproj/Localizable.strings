@@ -1,0 +1,126 @@
+/* 
+  Localizable.strings
+  CySmart
+
+  Created by Subheesh on 01/07/15.
+  Copyright (c) 2015-2018 Cypress Semiconductor. All rights reserved.
+*/
+
+/* Home view strings */
+
+"pullToRefresh"         =   "Pull down to refresh...";
+"bluetoothTurnOnAlert"  =   "Please turn Bluetooth ON";
+"connecting"            =   "Connecting..";
+"noServices"            =   "No Services";
+"undefined"             =   "Undefined";
+"unknownPeripheral"     =   "Unknown Peripheral";
+
+
+/* Data logger strings */
+
+"loggerToastMessage"    =   "Showing data logs upto";
+
+/* Capsense proximity */
+
+"AudioErrorAlert"       =   "Could not initialize audioplayer.Audio effects with proximity will be disabled";
+
+
+/* CSC and RSC - Common alert strings*/
+
+"maxWeightWarning"          =   "Warning! The weight entered is greater than 200 kg";
+"minWeightWarning"          =   "Warning! The weight entered is less than 1 kg";
+"emptyWeightFieldWarning"   =   "Warning! No value entered in weight field";
+
+
+"maxRadiusWarning"          =   "Warning! The wheel radius entered is greater than 725 mm";
+"minRadiusWarning"          =   "Warning! The wheel radius entered is lower than 300 mm";
+"emptyRadiusFieldWarning"   =   "Warning! No value entered in radius field";
+
+
+
+/* Find me and proximity strings*/
+
+"dataWriteErrorMessage"     =   "Error.Please try again";
+"dataWriteSuccessMessage"   =   "Written %@ Successfully";
+
+/* Carousel */
+
+"unknownServiceAlert"       =   "No custom UI available !";
+"goToGattDBAlert"           =   "Do you want to go to GATT DB ?";
+"serviceNotFound"           =   "No services found";
+
+/* OTA related strings */
+
+"fileReplaceAlert"                              =   "A cyacd file with the same name exist in documents folder.Do you want to replace the existing cyacd file with new one?";
+"fileCopiedToast"                               =   "File copied to documents folder successfully";
+"firmwareUpgradePendingMessage"                 =   "You have application upgrade pending.";
+"OTAUpgradeStatus"                              =   "UpgradeStatus";
+
+"OTAUpgradeCancelledMessage"                    =   "Firmware upgrade cancelled.";
+"OTAFileSelectedMessage"                        =   "Firmware File(s) Selected.";
+"OTAUpgradeInProgressMessage"                   =   "Firmware upgrade in progress.";
+"OTAUpgradeCompletedMessage"                    =   "Firmware upgrade completed successfully.";
+"OTAAppUgradePendingMessage"                    =   "Stack upgrade completed successfully. Application upgrade pending.";
+"OTARowNoOutOfBoundMessage"                     =   "Error: The row number exceeds the bounds";
+"OTAInvalidApplicationMessage"                  =   "Error: The application is invalid";
+"OTAChecksumMismatchMessage"                    =   "Error: The checksum do not match";
+"OTAWritingFailedMessage"                       =   "Error: Failed writing data row";
+"OTASendDataCommandFailed"                      =   "Error: Failed writing data with SEND_DATA command";
+"OTASiliconIDMismatchMessage"                   =   "Error: The SiliconID or SiliconRev does not match";
+"OTAUpgradeCancelConfirmMessage"                =   "Do you want to cancel the OTA update?";
+"OTAUpgradeResumeConfirmMessage"                =   "Do you want to resume the OTA update?";
+"OTAAppUpgradePendingWarning"                   =   "Warning! Application upgrade pending.";
+"OTAProgrammingOfActiveAppIsNotAllowedError"    =   "Programming of active application is not allowed";
+"OTAInvalidActiveAppProgrammedError"            =   "Illegal active application selected!\nPlease change selection andtry again.";
+"BootloaderSecurityKeyWarningTitle"             =   "Security Key";
+"BootloaderSecurityKeyWarningMessage"           =   "6-byte hexadecimal number expected";
+
+
+// OTA File selection
+
+"selectStackfile"                   =   "Select stack upgrade file";
+"selectFirmwareFile"                =   "Select firmware upgrade file";
+"selectApplicationFile"             =   "Select application upgrade file";
+
+"selectStackFileToProceed"          =   "Select the stack upgrade file to proceed!";
+"selectApplicationFileToProceed"    =   "Select the application upgrade file to proceed!";
+"selectSingleFileForUpgrade"        =   "Select a file for both stack and application upgrade with combined file!";
+"selectFileForApplicationUpgrade"   =   "Select a file for application upgrade!";
+
+"fileNotAvailableMessage"           =   "No firmware files available!";
+"upgradeProgressAlert"              =   "You have firmware upgrade in progress. Going back will stop the firmware upgrade and disconnect from the device. Do you want to continue?";
+
+// OTA - File parsing
+
+"dataFormatInvalid"                 =   "The firmware file data format is invalid! Parsing failed.";
+"parsingFailed"                     =   "The firmware file parsing failed!";
+"fileEmpty"                         =   "The firmware file is empty!";
+"invalidFile"                       =   "Invalid or corrupted file";
+"unsupportedFileVersion"            =   "Unsupported file version";
+
+/* Common strings */
+
+"warning"                   =   "Warning!";
+"unknownError"              =   "An Unknown error occurred.";
+"internetUnavailbleAlert"   =   "No internet connection.Please try after connecting to a network";
+
+/* BLE device related strings */
+
+"BLENotSupportedAlert"          =   "This device does not support Bluetooth Low Energy";
+"appNotAuthorizedAlert"         =   "The app is not authorized  to use bluetooth low energy";
+"stateUnknownAlert"             =   "The state of central manager is unknown.";
+"connectionTimeOutAlert"        =   "The Connection has Timed Out unexpectedly";
+"deviceDisconnectedAlert"       =   "The BLE device is disconnected";
+"bluetoothDeviceTurnOnAlert"    =   "Turn On Bluetooth to Allow App to Connect to Accessories";
+
+
+/* GattDB strings */
+
+"enterHexAlert"             =   "Enter Hex Values";
+"enterASCIIAlert"           =   "Enter ASCII Values";
+
+/* Graph related strings */
+
+"graphDataNotAvailableAlert"        =   "Not enough data available to show the graph";
+
+

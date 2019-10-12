@@ -1,0 +1,51 @@
+CySmart iOS App Open Source Libraries
+-----------------------------------------
+
+CySmart iOS app uses few open source libraries to implement some of its features. 
+The details of these open source libraries are documented below:
+
+1. ios-linechart
+Charting library for iOS
+https://github.com/mruegenberg/ios-linechart
+
+License: 
+https://github.com/mruegenberg/ios-linechart/blob/master/LICENSE
+
+2. MRHexKeyboard
+An iOS keyboard, that supports entering hex-values to the UITextField
+https://github.com/doofyus/HexKeyboard
+
+License: 
+https://github.com/doofyus/HexKeyboard/blob/master/LICENSE
+
+3. KLCPopup
+KLCPopup is a simple and flexible iOS class for presenting any custom view as a popup. 
+It includes a variety of options for controlling how your popup appears and behaves
+https://github.com/jmascia/KLCPopup
+
+License:
+https://github.com/jmascia/KLCPopup/blob/master/LICENSE
+
+4. MBProgressHUD
+MBProgressHUD is an iOS drop-in class that displays a translucent HUD with an indicator and/or labels 
+while work is being done in a background thread
+https://github.com/jdg/MBProgressHUD
+
+License:
+https://github.com/jdg/MBProgressHUD/blob/master/LICENSE
+
+5. Toast for iOS
+Toast is an Objective-C category that adds Android-style toast notifications to the UIView object class. 
+It is intended to be simple, lightweight, and easy to use.
+https://github.com/scalessec/Toast
+
+License:
+https://github.com/scalessec/Toast/blob/master/license
+
+6. iCarousel
+iCarousel is a class designed to simplify the implementation of various types of carousel (paged, scrolling views) 
+on iPhone, iPad and Mac OS.
+https://github.com/nicklockwood/iCarousel
+
+License:
+https://github.com/nicklockwood/iCarousel/blob/master/LICENCE.md
