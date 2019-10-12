@@ -95,7 +95,7 @@
  */
 -(void) discoverCharacteristicsWithCompletionHandler:(void (^) (BOOL success, NSError *error)) handler
 {
-  NSLog(@"BootLoaderServiceModel: discoverCharacteristicsWithCompletionHandler");
+  NSLog(@"Cypress: discoverCharacteristicsWithCompletionHandler");
     cbCharacteristicDiscoverHandler = handler;
     [[CyCBManager sharedManager] setCbCharacteristicDelegate:self];
     [[[CyCBManager sharedManager] myPeripheral] discoverCharacteristics:nil forService:[[CyCBManager sharedManager] myService]];
@@ -109,7 +109,7 @@
  */
 -(void) enableNotificationForBootloaderCharacteristicAndSetNotificationHandler:(void (^) (NSError *error, id command, unsigned char otaCommand)) handler
 {
-  NSLog(@"BootLoaderServiceModel: enableNotificationForBootloaderCharacteristicAndSetNotificationHandler");
+  NSLog(@"Cypress: enableNotificationForBootloaderCharacteristicAndSetNotificationHandler");
     cbBootloaderCharacteristicNotificationHandler = handler;
     
     if (bootloaderCharacteristic != nil)
@@ -128,7 +128,7 @@
  */
 -(void) writeCharacteristicValueWithData:(NSData *)data command:(unsigned short)commandCode
 {
-  NSLog(@"BootLoaderServiceModel: writeCharacteristicValueWithData cmd:%d", commandCode);
+  NSLog(@"Cypress: writeCharacteristicValueWithData cmd:%d", commandCode);
     if (data != nil && bootloaderCharacteristic != nil)
     {
         if (commandCode)
@@ -190,7 +190,7 @@
  */
 -(void) stopUpdate
 {
-  NSLog(@"BootLoaderServiceModel: stopUpdate");
+  NSLog(@"Cypress: stopUpdate");
     cbBootloaderCharacteristicNotificationHandler = nil;
     [commandArray removeAllObjects];
     
@@ -213,7 +213,7 @@
  */
 -(void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
 {
-  NSLog(@"BootLoaderServiceModel: didDiscoverCharacteristicsForService: %@", service.UUID);
+  NSLog(@"Cypress: didDiscoverCharacteristicsForService: %@", service.UUID);
     if ([service.UUID isEqual:CUSTOM_BOOT_LOADER_SERVICE_UUID])
     {
         for (CBCharacteristic *characteristic in service.characteristics)
@@ -254,7 +254,7 @@
  *
  */
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-  NSLog(@"BootLoaderServiceModel: didUpdateValueForCharacteristic: %@", characteristic.UUID);
+  NSLog(@"Cypress: didUpdateValueForCharacteristic: %@", characteristic.UUID);
     if (error == nil) {
         if ([characteristic.UUID isEqual:BOOT_LOADER_CHARACTERISTIC_UUID]) {
             unsigned char *bytes = (unsigned char *) [characteristic.value bytes];
@@ -333,7 +333,7 @@
  */
 -(void) getBootloaderDataFromCharacteristic:(CBCharacteristic *) characteristic
 {
-  NSLog(@"BootLoaderServiceModel: getBootloaderDataFromCharacteristic: %@", characteristic.UUID);
+  NSLog(@"Cypress: getBootloaderDataFromCharacteristic: %@", characteristic.UUID);
     uint8_t *dataPointer = (uint8_t *)[characteristic.value bytes];
     
     // Move to the position of data field
@@ -361,7 +361,7 @@
  */
 -(void) getBootloaderDataFromCharacteristic_v1:(CBCharacteristic *) characteristic
 {
-  NSLog(@"BootLoaderServiceModel: getBootloaderDataFromCharacteristic_v1: %@", characteristic.UUID);
+  NSLog(@"Cypress: getBootloaderDataFromCharacteristic_v1: %@", characteristic.UUID);
     uint8_t * dataPointer = (uint8_t *)[characteristic.value bytes];
     
     dataPointer += COMMAND_PACKET_HEADER;
@@ -385,7 +385,7 @@
  */
 -(void) getFlashDataFromCharacteristic:(CBCharacteristic *)charatceristic
 {
-  NSLog(@"BootLoaderServiceModel: getFlashDataFromCharacteristic: %@", charatceristic.UUID);
+  NSLog(@"Cypress: getFlashDataFromCharacteristic: %@", charatceristic.UUID);
     uint8_t * dataPointer = (uint8_t *)[charatceristic.value bytes];
     
     dataPointer += 4;
@@ -408,7 +408,7 @@
  */
 -(void) getRowCheckSumFromCharacteristic:(CBCharacteristic *)characteristic
 {
-  NSLog(@"BootLoaderServiceModel: getRowCheckSumFromCharacteristic: %@", characteristic.UUID);
+  NSLog(@"Cypress: getRowCheckSumFromCharacteristic: %@", characteristic.UUID);
     uint8_t * dataPointer = (uint8_t *)[characteristic.value bytes];
     
     _checksum = dataPointer[4];
@@ -422,7 +422,7 @@
  */
 -(void) checkApplicationCheckSumFromCharacteristic:(CBCharacteristic *) characteristic
 {
-  NSLog(@"BootLoaderServiceModel: checkApplicationCheckSumFromCharacteristic: %@", characteristic.UUID);
+  NSLog(@"Cypress: checkApplicationCheckSumFromCharacteristic: %@", characteristic.UUID);
     uint8_t *dataPointer = (uint8_t *)[characteristic.value bytes];
     int chksumValid = dataPointer[4];
     if (chksumValid > 0)
@@ -442,7 +442,7 @@
  *
  */
 -(NSData *) createPacketWithCommandCode:(uint8_t)commandCode dataLength:(unsigned short)dataLength data:(NSDictionary *)dataDict {
-  NSLog(@"BootLoaderServiceModel: createPacketWithCommandCode: %d", commandCode);
+  NSLog(@"Cypress: createPacketWithCommandCode: %d", commandCode);
     int idx = 0;
     unsigned char *commandPacket =  (unsigned char *)malloc((COMMAND_PACKET_MIN_SIZE + dataLength) * sizeof(unsigned char));
     
@@ -517,7 +517,7 @@
  */
 -(NSData *) createPacketWithCommandCode_v1:(uint8_t)commandCode dataLength:(unsigned short)dataLength data:(NSDictionary *)dataDict
 {
-  NSLog(@"BootLoaderServiceModel: createPacketWithCommandCode_v1: %d", commandCode);
+  NSLog(@"Cypress: createPacketWithCommandCode_v1: %d", commandCode);
     int idx = 0;
     unsigned char *commandPacket =  (unsigned char *)malloc((COMMAND_PACKET_MIN_SIZE + dataLength) * sizeof(unsigned char));
     
@@ -601,7 +601,7 @@
  */
 -(unsigned short) calculateChecksumWithCommandPacket:(unsigned char [])array withSize:(int)packetSize type:(NSString *)type
 {
-  NSLog(@"BootLoaderServiceModel: calculateChecksumWithCommandPacket: %d", commandCode);
+  NSLog(@"Cypress: calculateChecksumWithCommandPacket");
     if ([type isEqualToString:CHECK_SUM])
     {
         // Sum checksum

@@ -238,7 +238,7 @@
  */
 - (void) centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
-  NSLog(@"BLE: didConnectPeripheral ");
+  NSLog(@"Cypress: didConnectPeripheral ");
     myPeripheral =  nil;
     myPeripheral = [peripheral copy];
     myPeripheral.delegate = self ;
@@ -256,7 +256,7 @@
  */
 - (void) centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
-  NSLog(@"BLE: didFailToConnectPeripheral ");
+  NSLog(@"Cypress: didFailToConnectPeripheral ");
      [self cancelTimeOutAlert];
      cbCommunicationHandler(NO,error);
 }
@@ -269,7 +269,7 @@
  */
 - (void) centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
-  NSLog(@"BLE: didDisconnectPeripheral ");
+  NSLog(@"Cypress: didDisconnectPeripheral ");
     [self cancelTimeOutAlert];
 
     /*  Check whether the disconnection is done by the device */
@@ -331,7 +331,7 @@
  */
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
 {
-  NSLog(@"BLE: didDiscoverServices ");
+  NSLog(@"Cypress: didDiscoverServices ");
     [self cancelTimeOutAlert];
     if(error == nil)
     {
@@ -372,7 +372,7 @@
  */
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
 {
-    NSLog(@"BLE: didDiscoverCharacteristicsForService: %@ ", service.UUID);
+    NSLog(@"Cypress: didDiscoverCharacteristicsForService: %@ ", service.UUID);
     if([cbCharacteristicDelegate isKindOfClass:[CyCBManager class]] || cbCharacteristicDelegate == nil)
     {
         cbCommunicationHandler(YES,nil);
@@ -389,7 +389,7 @@
  */
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
-  NSLog(@"BLE: didUpdateValueForCharacteristic: %@ ", characteristic.UUID);
+  NSLog(@"Cypress: didUpdateValueForCharacteristic: %@ ", characteristic.UUID);
     if (error)
     {
         if (!characteristic.isNotifying)
@@ -410,7 +410,7 @@
  */
 - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
-  NSLog(@"BLE: didWriteValueForCharacteristic: %@ ", characteristic.UUID);
+  NSLog(@"Cypress: didWriteValueForCharacteristic: %@ ", characteristic.UUID);
     if([cbCharacteristicDelegate respondsToSelector:@selector(peripheral:didWriteValueForCharacteristic:error:)])
     {
         [cbCharacteristicDelegate peripheral:peripheral didWriteValueForCharacteristic:characteristic error:error];
@@ -423,7 +423,7 @@
  */
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
-  NSLog(@"BLE: didDiscoverDescriptorsForCharacteristic: %@ ", characteristic.UUID);
+  NSLog(@"Cypress: didDiscoverDescriptorsForCharacteristic: %@ ", characteristic.UUID);
     if([cbCharacteristicDelegate respondsToSelector:@selector(peripheral:didDiscoverDescriptorsForCharacteristic:error:)])
     [cbCharacteristicDelegate peripheral:peripheral didDiscoverDescriptorsForCharacteristic:characteristic error:error];
 }
@@ -434,7 +434,7 @@
  */
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForDescriptor:(CBDescriptor *)descriptor error:(NSError *)error
 {
-  NSLog(@"BLE: didUpdateValueForDescriptor: %@ ", descriptor.UUID);
+  NSLog(@"Cypress: didUpdateValueForDescriptor: %@ ", descriptor.UUID);
     if (error)
     {
         [Utilities logDataWithService:[ResourceHandler getServiceNameForUUID:descriptor.characteristic.service.UUID] characteristic:[ResourceHandler getCharacteristicNameForUUID:descriptor.characteristic.UUID] descriptor:[Utilities getDiscriptorNameForUUID:descriptor.UUID] operation:[NSString stringWithFormat:@"%@- %@%@",READ_RESPONSE,READ_ERROR,[error.userInfo objectForKey:NSLocalizedDescriptionKey]]];
@@ -448,7 +448,7 @@
  */
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error
 {
-  NSLog(@"BLE: didUpdateNotificationStateForCharacteristic: %@ ", characteristic.UUID);
+  NSLog(@"Cypress: didUpdateNotificationStateForCharacteristic: %@ ", characteristic.UUID);
     if([cbCharacteristicDelegate respondsToSelector:@selector(peripheral:didUpdateNotificationStateForCharacteristic:error:)]) {
         [cbCharacteristicDelegate peripheral:peripheral didUpdateNotificationStateForCharacteristic:characteristic error:error];
     }
@@ -529,7 +529,7 @@
  */
 - (void) refreshPeripherals
 {
-  NSLog(@"BLE: refreshPeripherals ");
+  NSLog(@"Cypress: refreshPeripherals ");
     [self clearDevices];
     if([centralManager state] == CBCentralManagerStatePoweredOff)
     {
