@@ -568,6 +568,7 @@
  *
  */
 -(void) handleResponseForCommand:(id)command error:(unsigned char)error {
+  NSLog(@"Cypress: handleResponseForCommand:%@ error:%d", command, error);
     if (SUCCESS == error) {
         if ([command isEqual:@(ENTER_BOOTLOADER)]) {
             // Compare siliconID and siliconRev
@@ -710,6 +711,7 @@
  *
  */
 -(void) handleResponseForCommand_v1:(id)command error:(unsigned char)error {
+  NSLog(@"Cypress: handleResponseForCommand_v1: %@ error: %d", command, error);
     if (SUCCESS == error) {
         if ([command isEqual:@(ENTER_BOOTLOADER)]) {
             // Compare Silicon ID and Silicon Rev string

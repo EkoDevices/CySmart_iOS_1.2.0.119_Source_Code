@@ -34,6 +34,7 @@
 
 #import "CyCBManager.h"
 #import "Constants.h"
+#import "NSData+hexString.h"
 
 #define COMMAND_PACKET_MIN_SIZE  7
 
@@ -170,13 +171,14 @@
                     localData = [NSMutableData dataWithBytes:lastBytes length:totalLength];
                     totalLength = 0;
                 }
-                
+              NSLog(@"Cypress: writing bytes=%@", [localData hexString]);
                 [[[CyCBManager sharedManager] myPeripheral] writeValue:localData forCharacteristic:bootloaderCharacteristic type:CBCharacteristicWriteWithoutResponse];
             }
             while (totalLength > 0);
         }
         else
         {
+          NSLog(@"Cypress: writing bytes=%@", [data hexString]);
             [[[CyCBManager sharedManager] myPeripheral] writeValue:data forCharacteristic:bootloaderCharacteristic type:CBCharacteristicWriteWithResponse];
         }
     }
