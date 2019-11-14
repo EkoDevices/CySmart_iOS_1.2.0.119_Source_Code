@@ -118,7 +118,10 @@
     {
         [cbDiscoveryDelegate bluetoothStateUpdatedToState:YES];
         NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], CBCentralManagerScanOptionAllowDuplicatesKey, nil];
-        [centralManager scanForPeripheralsWithServices:nil options:options];
+//        [centralManager scanForPeripheralsWithServices:nil options:options];
+      CBUUID* core2DFUUUID = [CBUUID UUIDWithString:@"00060000-f8ce-11e4-abf4-0002a5d5c51b"];
+      NSArray<CBUUID*>* svcs = @[core2DFUUUID];
+      [centralManager scanForPeripheralsWithServices:svcs options:options];
     }
     else if ([centralManager state] == CBCentralManagerStateUnsupported)
     {
