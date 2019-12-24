@@ -245,7 +245,9 @@
     myPeripheral =  nil;
     myPeripheral = [peripheral copy];
     myPeripheral.delegate = self ;
-    [myPeripheral discoverServices:nil];
+//    [myPeripheral discoverServices:nil];
+  CBUUID* otaSvcUUID = [CBUUID UUIDWithString:@"00060000-f8ce-11e4-abf4-0002a5d5c51b"];
+  [myPeripheral discoverServices:@[otaSvcUUID]];
     
     [[LoggerHandler logManager] addLogData:[NSString stringWithFormat:@"[%@] %@", peripheral.name, CONNECTION_ESTABLISH]];
     [[LoggerHandler logManager] addLogData:[NSString stringWithFormat:@"[%@] %@", peripheral.name, SERVICE_DISCOVERY_REQUEST]];

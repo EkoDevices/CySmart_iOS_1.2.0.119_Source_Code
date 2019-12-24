@@ -506,7 +506,7 @@
     else
     {
         //To add GATT DB item
-        [self addGattDBCarouselItem];
+//        [self addGattDBCarouselItem];
     }
 
     if([carouselArray count])
